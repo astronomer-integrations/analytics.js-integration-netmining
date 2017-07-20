@@ -9,7 +9,10 @@ var Netmining = require('../lib/index');
 describe('Netmining', function() {
   var analytics;
   var Netmining;
-  var options = {};
+  var options = {
+      aid: 1234,
+      src: 'test.com',
+  };
 
   beforeEach(function() {
     analytics = new Analytics();
@@ -27,10 +30,14 @@ describe('Netmining', function() {
   });
 
   it('should have the correct settings', function() {
+    analytics.compare(OutBrain, integration('OutBrain')
+      .option('obAdvId', '')
+      .option('events', []));
   });
 
   describe('after loading', function() {
     beforeEach(function(done) {
+      console.log('we be out here working');
       analytics.stub(Netmining, 'load');
       analytics.once('ready', done);
       analytics.initialize();

@@ -1,8 +1,8 @@
 {
-  "name": "analytics.js-integration-netmining",
+  "name": "@astronomerio/analytics.js-integration-netmining",
   "version": "1.0.0",
   "description": "An analytics.js integration for Netmining Ad Targeting",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
     "test": "karma start"
   },
