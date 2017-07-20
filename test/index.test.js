@@ -34,12 +34,4 @@ describe('Netmining', function() {
       .option('aid', '')
       .option('src', ''));
   });
-
-  describe('after loading', function() {
-    beforeEach(function(done) {
-      analytics.stub(netmining, 'load');
-      analytics.once('ready', done);
-      analytics.initialize();
-  });
-  });
 });
