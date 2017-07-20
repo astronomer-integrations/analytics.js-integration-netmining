@@ -8,7 +8,7 @@ var Netmining = require('../lib/index');
 
 describe('Netmining', function() {
   var analytics;
-  var Netmining;
+  var netmining;
   var options = {
       aid: 1234,
       src: 'test.com',
@@ -16,30 +16,30 @@ describe('Netmining', function() {
 
   beforeEach(function() {
     analytics = new Analytics();
-    Netmining = new Netmining(options);
+    netmining = new Netmining(options);
     analytics.use(Netmining);
     analytics.use(tester);
-    analytics.add(Netmining);
+    analytics.add(netmining);
   });
 
   afterEach(function() {
     analytics.restore();
     analytics.reset();
-    Netmining.reset();
+    netmining.reset();
     sandbox();
   });
 
   it('should have the correct settings', function() {
-    analytics.compare(Netmining, integration('netmining')
+    analytics.compare(Netmining, integration('Netmining')
       .option('aid', '')
       .option('src', ''));
   });
 
   describe('after loading', function() {
-    console.log('after');
     beforeEach(function(done) {
-      analytics.stub(Netbrain, 'load');
+      analytics.stub(netmining, 'load');
       analytics.once('ready', done);
       analytics.initialize();
+  });
   });
 });
