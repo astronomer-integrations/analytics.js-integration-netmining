@@ -30,17 +30,16 @@ describe('Netmining', function() {
   });
 
   it('should have the correct settings', function() {
-    analytics.compare(OutBrain, integration('OutBrain')
-      .option('obAdvId', '')
-      .option('events', []));
+    analytics.compare(Netmining, integration('netmining')
+      .option('aid', '')
+      .option('src', ''));
   });
 
   describe('after loading', function() {
+    console.log('after');
     beforeEach(function(done) {
-      console.log('we be out here working');
-      analytics.stub(Netmining, 'load');
+      analytics.stub(Netbrain, 'load');
       analytics.once('ready', done);
       analytics.initialize();
-    });
   });
 });
