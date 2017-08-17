@@ -16,7 +16,7 @@
     "url": "https://github.com/astronomer-integrations/analytics.js-integration-netmining/issues"
   },
   "homepage": "https://github.com/astronomer-integrations/analytics.js-integration-netmining#readme",
-"dependencies": {
+  "dependencies": {
     "@astronomerio/analytics.js-integration": "github:astronomerio/analytics.js-integration#3.1.0"
   },
   "devDependencies": {
