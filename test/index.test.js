@@ -6,15 +6,15 @@ var sandbox = require('@segment/clear-env');
 var tester = require('@segment/analytics.js-integration-tester');
 var Netmining = require('../lib/index');
 
-describe('Netmining', function() {
+describe('Netmining', function () {
   var analytics;
   var netmining;
   var options = {
-      aid: 1234,
-      src: 'test.com',
+    aid: 1234,
+    src: 'test.com',
   };
 
-  beforeEach(function() {
+  beforeEach(function () {
     analytics = new Analytics();
     netmining = new Netmining(options);
     analytics.use(Netmining);
@@ -22,16 +22,26 @@ describe('Netmining', function() {
     analytics.add(netmining);
   });
 
-  afterEach(function() {
+  afterEach(function () {
     analytics.restore();
     analytics.reset();
     netmining.reset();
     sandbox();
   });
 
-  it('should have the correct settings', function() {
+  it('should have the correct settings', function () {
     analytics.compare(Netmining, integration('Netmining')
       .option('aid', '')
       .option('src', ''));
+  });
+
+  describe('after loading', function () {
+    beforeEach(function (done) {
+      analytics.once('ready', done);
+      analytics.initialize();
+    });
+
+    it('should load properly', function () {
+    });
   });
 });
